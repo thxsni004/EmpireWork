@@ -1,0 +1,49 @@
+/* PortfolioSection.css */
+
+.portfolio-section {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .portfolio-section img {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .portfolio-section .badge {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .portfolio-section p {
+    text-align: center;
+  }
+}
+.row{
+    margin-left: 20px;
+    color: white;
+
+
+}
+
+
+.posters{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.posters::-webkit-scrollbar{
+    display: none;
+}
+.poster{
+    max-height: 400px;
+    margin-left: 10px;
+}
+
+.smallPoster{
+    max-height: 250px;
+    margin-left: 10px;
+}
+
