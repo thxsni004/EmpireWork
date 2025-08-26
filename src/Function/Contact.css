@@ -107,3 +107,6 @@
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
   transition: 0.3s ease;
 }
+label{
+  color: #000;
+}

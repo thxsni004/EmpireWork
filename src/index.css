@@ -74,10 +74,11 @@ margin-bottom: 1rem;
 .event-grid{
   display: grid;
   gap: 1.5rem;
+  grid-template-columns: repeat(2,1fr);
 }
-@media(min-width:640px){
+@media(min-width:400px){
   .event-grid{
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1fr);
   }
 }
 @media(min-width:768px){
@@ -138,3 +139,4 @@ text-align: justify;
 .event-card button:hover {
   background-color: #1e40af;
 } */
+

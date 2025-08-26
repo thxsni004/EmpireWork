@@ -7,7 +7,11 @@ import { Nav } from 'react-bootstrap';
 import {Row,Col} from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import { useNavigate } from 'react-router-dom';
+import PortfolioPreview from './Function/PortfolioPreview'; // 🔁 added import
+import Contact from './Function/Contact';
+
 import './index.css'
+import Portfolio from './Function/Portfolio';
 
 function First() {
 
@@ -21,14 +25,14 @@ function First() {
 
 
       <Navbar className="navbar-container d-flex justify-content-between px-3" style={{ marginTop: '-10px' }}>
-        <div className="d-flex justify-content-between align-items-center w-100">
+        <div className="d-flex justify-content-center align-items-center w-10">
         
-          <Nav className="ms-3 d-flex gap-3 ">
-            <Nav.Link href="#services">Services</Nav.Link>
+          {/* <Nav className="ms-3 d-flex gap-3 ">
+            <Nav.Link href="#events">Services</Nav.Link>
             <Nav.Link href="/portfolio">Portfolio</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>
-          </Nav>
-        </div>
+          </Nav> */}
+        </div >
         <div className="d-flex align-items-center gap-3">
           <a href="https://instagram.com/empire_eventss" target="_blank" rel="noreferrer">
             <i className="bi bi-instagram fs-4 text-dark"></i>
@@ -90,6 +94,9 @@ function First() {
 
       </Row>
     </Container>
+<Portfolio/>
+    {/*portfolio preview section*/}
+    {/* <PortfolioPreview title='Check Out Our Sucessessful Events' isSmall={true}/> */}
 
   {/* event category section */}
   <section id='events' className='event-section'>
@@ -99,11 +106,14 @@ function First() {
         <div key={index} className='event-card'>
           <h3>{item}</h3>
           <p>Explore stage setup, food, seating, and more for {item.toLowerCase()} events</p>
-          <button>Explore</button>
+          <button>Menu</button>
           </div>
       ))}
     </div>
   </section>
+
+
+  <Contact/>
 </div>
 
    

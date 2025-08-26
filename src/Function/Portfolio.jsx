@@ -4,7 +4,11 @@ import './Portfolio.css'
 import { galleryImages } from '../Constants/Constant';
 import { Link } from 'react-router-dom';
 
+
 function Portfolio(props) {
+  const galleryTypes = ['birthday', 'wedding','corperate','other','stage']; // or anything you want
+
+
 
  
   return (
@@ -35,23 +39,17 @@ function Portfolio(props) {
     </Container>
 
 
-<div className='row'> 
-    <h2 className='text-center my-4 fw-bold text-dark'>{props.title}</h2>
-    <div className='posters'> 
-        {galleryImages.map((url,index)=>(
-
-            <Link to={`/Gallery/${index}`}
-            key={index}
-            style={{ textDecoration:'none'}}>
-
-        <img 
-        key={index}
-        src={url}
-         className={props.isSmall ? "smallPoster" : "poster"} 
-        alt={`Portfolio ${index + 1}`}
-        
-        />
-         </Link>
+     <div className="row">
+        <h2 className="text-center my-4 fw-bold text-dark">{props.title}</h2>
+        <div className="posters">
+          {galleryTypes.map((type, index) => (
+            <Link to={`/Gallery/${type}`} key={index}>
+              <img
+                src={galleryImages[type][0]} // First image of each category
+                className={props.isSmall ? "smallPoster" : "poster"}
+                alt={type}
+              />
+            </Link>
         
        ) )}
          

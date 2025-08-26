@@ -46,4 +46,12 @@
     max-height: 250px;
     margin-left: 10px;
 }
+video {
+  max-width: 290px;
+
+      display: flex;
+      
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
