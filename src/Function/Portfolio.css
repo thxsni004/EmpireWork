@@ -1,57 +1,157 @@
-/* PortfolioSection.css */
+/* ===== Portfolio section (home page and /portfolio) ===== */
 
 .portfolio-section {
-  background-color: #f9f9f9;
+  background-color: var(--bg-soft);
 }
 
-@media (max-width: 768px) {
-  .portfolio-section img {
-    max-width: 90%;
-    margin: auto;
-  }
-
-  .portfolio-section .badge {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .portfolio-section p {
-    text-align: center;
-  }
-}
-.row{
-    margin-left: 20px;
-    color: white;
-
-
+/* "Portfolio" pill badge */
+.animated-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  background-color: var(--maroon);
+  color: var(--white);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
 }
 
-
-.posters{
-    display: flex;
-    padding: 20px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-}
-.posters::-webkit-scrollbar{
-    display: none;
-}
-.poster{
-    max-height: 400px;
-    margin-left: 10px;
+.portfolio-lead {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
 }
 
-.smallPoster{
-    max-height: 250px;
-    margin-left: 10px;
-}
-video {
-  max-width: 290px;
-
-      display: flex;
-      
-  border-radius: 100px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+.portfolio-lead strong {
+  color: var(--text-dark);
 }
 
+/* Category card: photo with the name over it */
+.gallery-card {
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the card without stretching the photo */
+  transition: transform 0.6s ease;
+}
+
+.gallery-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  color: var(--white);
+  background: linear-gradient(to top, rgba(110, 50, 50, 0.85) 0%, rgba(110, 50, 50, 0) 60%);
+}
+
+.gallery-card-overlay h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.25rem;
+}
+
+.gallery-card-overlay span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Older poster styles, still used by PortfolioPreview */
+.posters {
+  display: flex;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.posters::-webkit-scrollbar {
+  display: none;
+}
+
+.poster {
+  max-height: 400px;
+  margin-left: 10px;
+}
+
+.smallPoster {
+  max-height: 250px;
+  margin-left: 10px;
+}
+
+/* ===== Gallery detail page (/Gallery/:type) ===== */
+
+.gallery-banner {
+  background-color: var(--rose-light);
+  padding: 3rem 0 2.5rem;
+  text-align: center;
+}
+
+.gallery-banner h1 {
+  font-weight: 700;
+  margin: 0.5rem 0 0;
+}
+
+.back-link {
+  color: var(--maroon);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: var(--maroon-dark);
+}
+
+/* Each photo is a button so it can be clicked/tapped to open the large preview */
+.gallery-thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  box-shadow: var(--shadow-sm);
+  cursor: zoom-in;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-thumb:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-thumb:focus-visible {
+  outline: 3px solid var(--maroon);
+  outline-offset: 2px;
+}
+
+.gallery-video {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  background-color: #000;
+}

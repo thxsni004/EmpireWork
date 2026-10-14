@@ -1,142 +1,284 @@
-.hero{
-  background-image:url('/Images/flower2.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 80vh;
-  display: flex;
+/* =========================================================
+   Brand colors and fonts
+   Change a color here and it updates across the whole site.
+   ========================================================= */
+:root {
+  --maroon: #a84d4d;          /* main brand color (buttons, accents) */
+  --maroon-dark: #6e3232;     /* darker shade of the maroon for footer / hover */
+  --rose-hover: #e59393;      /* original light hover pink */
+  --rose: rgb(230, 198, 205); /* dusty rose */
+  --rose-light: #f3e3e6;      /* dusty rose at 50% on white (original hero/contact background) */
+  --rose-card: rgba(225, 181, 182, 0.9); /* original event card color */
+  --bg-soft: #f9f9f9;
+  --white: #ffffff;
+  --text-dark: #0e0c0c;
+  --text-muted: #555;
+
+  --font-heading: 'Playfair Display', 'Times New Roman', Times, serif;
+  --shadow-sm: 0 2px 10px rgba(110, 50, 50, 0.08);
+  --shadow-md: 0 8px 24px rgba(110, 50, 50, 0.12);
+  --radius: 1rem;
+}
+
+/* ===== Base ===== */
+html {
+  scroll-padding-top: 90px; /* so the sticky menu doesn't cover section titles */
+}
+
+body {
+  color: var(--text-dark);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ===== Reusable buttons ===== */
+.btn-brand,
+.btn-outline-brand {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--maroon);
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
-.hero-content{
-  background-color: rgba(230, 198, 205,0.5);
-  padding: 2rem;
-  border-radius: 1rem;
-  color: rgb(14, 12, 12);
+
+.btn-brand {
+  background-color: var(--maroon);
+  color: var(--white);
 }
-.hero h1{
+
+.btn-brand:hover {
+  background-color: var(--maroon-dark);
+  border-color: var(--maroon-dark);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-brand {
+  background-color: var(--white);
+  color: var(--maroon);
+}
+
+.btn-outline-brand:hover {
+  background-color: var(--rose-light);
+  color: var(--maroon);
+  transform: translateY(-2px);
+}
+
+/* ===== Reusable section layout ===== */
+.section {
+  padding: 5rem 0;
+}
+
+.section-tinted {
+  background-color: var(--rose-light);
+}
+
+.section-tag {
+  display: inline-block;
+  color: var(--maroon);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-weight: 700;
   font-size: 2rem;
-margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
-@media (min-width:768px) {
-  .hero h1{
-    font-size: 3rem;
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
   }
 }
 
-.hero p{
+.paragraph {
   font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 15px;
 }
-.cta-buttons{
+
+/* ===== Hero ===== */
+.hero {
+  /* rose-to-maroon tint over the existing photo so the text stays readable */
+  background-image:
+    linear-gradient(90deg, rgba(110, 50, 50, 0.75) 0%, rgba(168, 77, 77, 0.35) 60%, rgba(230, 198, 205, 0.15) 100%),
+    url('/Images/flower2.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.hero-content {
+  max-width: 620px;
+  color: var(--white);
+  animation: fadeUp 0.9s ease-out both;
+}
+
+.hero-tag {
+  display: inline-block;
+  background-color: rgba(230, 198, 205, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3.6rem;
+  }
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.cta-buttons {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  justify-content: center;
 }
-@media(min-width:640px){
-  .cta-buttons{
+
+@media (min-width: 576px) {
+  .cta-buttons {
     flex-direction: row;
   }
 }
-.cta-buttons a{
- padding: 0.5rem 1.5rem;
- border-radius: 0.5rem;
- text-decoration: none;
- transition: 0.3s;
- font-weight: bold;
-}
-.book-now{
-  background-color: #a84d4d;
-  color: white;
-}
-.book-now:hover{
-  background-color:  #e59393;
+
+/* ===== About image ===== */
+.about-image {
+  position: relative;
 }
 
-.contact-us{
-  background-color: white;
-  color:#a84d4d;
-  border: 1px solid  #ce6868;
+/* Rose block behind the photo for a layered look */
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: 20px -12px -12px 20px;
+  background-color: var(--rose);
+  border-radius: var(--radius);
+  z-index: -1;
 }
-.contact-us:hover{
-  background-color: #eff6ff;
+
+.about-image img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
-.event-section{
-  padding: 3rem 1rem;
+
+/* ===== Event category cards ===== */
+.event-card {
+  background-color: var(--white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
   text-align: center;
-}
-.event-section h2{
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  border-bottom: 4px solid transparent;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
-.event-grid{
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(2,1fr);
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-bottom-color: var(--maroon);
 }
-@media(min-width:400px){
-  .event-grid{
-    grid-template-columns: repeat(1fr);
-  }
+
+.event-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: var(--rose-card);
+  color: var(--maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
 }
-@media(min-width:768px){
-  .event-grid{
-    grid-template-columns: repeat(3,1fr);
-  }
-}
-.event-card{
-  background-color:rgba(225, 181, 182,0.9);
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: 0.3s;
-}
-.event-card:hover{
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-}
-.event-card h3{
+
+.event-card h3 {
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
 }
 
-.event-card p{
-  font-size: 0.9rem;
-  color: black;
+.event-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
 }
 
-.event-card button{
-  margin-top: 1rem;
-  background-color: #a84d4d;;
-  color: white;
-  padding: 0.5rem 1rem ;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-.event-card:hover{
-  background-color: #e78b8b;
-}
-.navbar-container {
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
-}
-.paragraph{
-  font-family: 'serif'; 
-  font-size: 1.2rem;
-color: #555;
-margin-bottom: 15px;
-text-align: justify;
-}
-.text-content h2{
-  font-family: 'Times New Roman', Times, serif;
+.card-link {
+  color: var(--maroon);
+  font-weight: 600;
+  text-decoration: none;
 }
 
-/* 
+.card-link i {
+  transition: transform 0.3s;
+  display: inline-block;
+}
 
+.card-link:hover {
+  color: var(--maroon-dark);
+}
 
+.card-link:hover i {
+  transform: translateX(4px);
+}
 
-.event-card button:hover {
-  background-color: #1e40af;
-} */
+/* ===== Animations ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+/* Respect users who turn off animations in their device settings */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

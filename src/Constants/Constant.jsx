@@ -15,6 +15,16 @@ export const galleryImages = {
 
 };
 
+// Friendly names shown on screen for each gallery type.
+// The keys must stay the same because they are part of the gallery URLs (e.g. /Gallery/corperate).
+export const galleryLabels = {
+  birthday: 'Birthday',
+  wedding: 'Wedding',
+  corperate: 'Corporate',
+  other: 'Other Events',
+  stage: 'Stage Decor',
+};
+
 
 // export const galleryImages=[
 

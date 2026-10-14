@@ -1,0 +1,77 @@
+.site-footer {
+  background-color: var(--maroon-dark);
+  color: var(--rose-light);
+  padding: 3.5rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-logo {
+  width: 90px;
+  height: auto;
+  background-color: var(--white);
+  border-radius: 0.75rem;
+  padding: 0.4rem;
+}
+
+.footer-text {
+  max-width: 340px;
+  line-height: 1.7;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--rose-light);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Round icon buttons */
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rose);
+  color: var(--white);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+  background-color: var(--maroon);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(230, 198, 205, 0.25);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+}

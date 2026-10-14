@@ -1,24 +1,82 @@
-.navbar-container{
-    justify-content: center !important;
-    display: flex;
-    align-items: center;
-
-}
-.logo-wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ===== Top bar (phone + social icons) ===== */
+.top-bar {
+  background-color: var(--maroon);
+  color: var(--white);
+  font-size: 0.85rem;
+  padding: 0.35rem 0;
 }
 
-.nav-brand img{
-    width: 100px;
-    height: auto;
-}
-@media (max-width:768px){
-    .nav-brand img{
-        width: 120px;
-   
-    }
+.top-bar a {
+  color: var(--white);
+  font-size: 1rem;
+  transition: opacity 0.3s;
 }
 
+.top-bar a:hover {
+  opacity: 0.75;
+}
 
+/* ===== Main navigation bar ===== */
+.main-navbar {
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-sm);
+  padding: 0.5rem 0;
+}
+
+.nav-brand img {
+  width: 90px;
+  height: auto;
+}
+
+.menu-link {
+  font-weight: 500;
+  color: var(--text-dark) !important;
+  position: relative;
+  padding: 0.5rem 0.75rem !important;
+}
+
+/* Small maroon line that grows under a link on hover */
+.menu-link::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  background-color: var(--maroon);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.menu-link:hover {
+  color: var(--maroon) !important;
+}
+
+.menu-link:hover::after {
+  transform: scaleX(1);
+}
+
+.menu-toggle {
+  border-color: var(--rose) !important;
+}
+
+.menu-toggle:focus {
+  box-shadow: 0 0 0 3px var(--rose-light);
+}
+
+/* Mobile menu: stack links with a little spacing */
+@media (max-width: 991px) {
+  .main-navbar .navbar-collapse {
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--rose-light);
+    margin-top: 0.5rem;
+  }
+
+  .main-navbar .btn-brand {
+    align-self: flex-start;
+  }
+
+  .nav-brand img {
+    width: 80px;
+  }
+}

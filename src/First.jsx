@@ -1,123 +1,107 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Nav } from 'react-bootstrap';
-import {Row,Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import { useNavigate } from 'react-router-dom';
-import PortfolioPreview from './Function/PortfolioPreview'; // 🔁 added import
+import { Link } from 'react-router-dom';
 import Contact from './Function/Contact';
-
-import './index.css'
 import Portfolio from './Function/Portfolio';
+import './index.css'
+
+// Event categories shown in the "Our Event Categories" section.
+// "gallery" is the gallery URL type; categories without photos yet link to the contact form.
+const eventCategories = [
+  { name: 'Wedding', icon: 'bi-heart', gallery: 'wedding' },
+  { name: 'Birthday', icon: 'bi-balloon', gallery: 'birthday' },
+  { name: 'Corporate Event', icon: 'bi-briefcase', gallery: 'corperate' },
+  { name: 'Engagement', icon: 'bi-gem', gallery: null },
+  { name: 'Cultural Event', icon: 'bi-stars', gallery: null },
+  { name: 'Other', icon: 'bi-calendar-event', gallery: 'other' },
+];
 
 function First() {
-
-  const navigate=useNavigate();
-
-  const handleContactClick =()=>{
-    navigate("/contact")
-  }
   return (
-    <div>
+    <div className='homepage'>
 
-
-      <Navbar className="navbar-container d-flex justify-content-between px-3" style={{ marginTop: '-10px' }}>
-        <div className="d-flex justify-content-center align-items-center w-10">
-        
-          {/* <Nav className="ms-3 d-flex gap-3 ">
-            <Nav.Link href="#events">Services</Nav.Link>
-            <Nav.Link href="/portfolio">Portfolio</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-          </Nav> */}
-        </div >
-        <div className="d-flex align-items-center gap-3">
-          <a href="https://instagram.com/empire_eventss" target="_blank" rel="noreferrer">
-            <i className="bi bi-instagram fs-4 text-dark"></i>
-          </a>
-          <a href="https://wa.me/9562420067" target="_blank" rel="noreferrer">
-            <i className="bi bi-whatsapp fs-4 text-dark "></i>
-          </a>
-<a href="mailto:Empireeventskechery@gmail.com?subject=Event%20Enquiry&body=Hi%20Empire%20Events,%0AI%20would%20like%20to%20know%20more%20about%20your%20event%20services." target="_blank" rel="noreferrer">
-  <i className="bi bi-envelope fs-4 text-dark"></i>
-</a>
-
-         <button 
-         onClick={handleContactClick} className='border border-gray-500 text-gray-800 px-3 py-1 rounded hover:bg-gray-100 transition duration-300"'> Contact</button>
-        </div>
-      </Navbar>
-
-
-<div className='homepage'>
-
-  <section className='hero'>
-    <div className='hero-content'>
-
-      <h1>Plan Your Perfect Events</h1>
-      <p>Make your special moments truly unforgettable with our expert planning services.</p>
-      <div className='cta-buttons'>
-        <a href="#events" className='book-now'>Book Now</a>
-        <a href="/contact" className='contact-us'> Contact Us</a>
-      </div>
-    </div>
-  </section>
-
-  {/* just introduction field */}
-
- <Container className="event-container py-5">
-      <Row className="align-items-center">
-        
-        {/* Left Side - Text Content */}
-        <Col xs={12} md={6} className="text-content">
-          <h2 className="section-title fw-bold mb-3">Welcome to Our Event Management</h2>
-          <p className="paragraph">
-            We specialize in creating unforgettable events tailored to your needs. Whether it's a wedding, corporate event, or private party, our expert team ensures every detail is perfect.
-          </p>
-          <p className="paragraph">
-           From intimate gatherings to grand celebrations, we focus on crafting meaningful moments and unforgettable experiences. Known especially for our delicious, flavor-rich cuisine, our catering services are a highlight at every event. Whether you're planning a wedding, cultural program, or private function, let Empire help you turn your vision into a cherished memory.
-          </p>
-      
-        </Col>
-
-        {/* Right Side - Single Image */}
-        <Col xs={12} md={6} className="text-center">
-          <Image 
-            src="/Images/flower.jpg"  // 🔁 replace with your image
-            alt="Event Highlight"
-            fluid
-            rounded
-            className="shadow"
-          />
-        </Col>
-
-      </Row>
-    </Container>
-<Portfolio/>
-    {/*portfolio preview section*/}
-    {/* <PortfolioPreview title='Check Out Our Sucessessful Events' isSmall={true}/> */}
-
-  {/* event category section */}
-  <section id='events' className='event-section'>
-    <h2>Our Event Categories</h2>
-    <div className="event-grid">
-      {['Wedding','Birthday','Corporate Event','Engagement','Cultural Event','Other'].map((item,index)=>(
-        <div key={index} className='event-card'>
-          <h3>{item}</h3>
-          <p>Explore stage setup, food, seating, and more for {item.toLowerCase()} events</p>
-          <button>Menu</button>
+      {/* ===== Hero ===== */}
+      <section className='hero'>
+        <Container>
+          <div className='hero-content'>
+            <span className='hero-tag'>Empire Events</span>
+            <h1>Plan Your Perfect Events</h1>
+            <p>Make your special moments truly unforgettable with our expert planning services.</p>
+            <div className='cta-buttons'>
+              <Link to="/contact" className='btn-brand'>
+                <i className='bi bi-chat-heart me-2'></i>Send an Enquiry
+              </Link>
+              <Link to="/#portfolio" className='btn-outline-brand'>
+                View Our Portfolio
+              </Link>
+            </div>
           </div>
-      ))}
-    </div>
-  </section>
+        </Container>
+      </section>
 
+      {/* ===== About / Introduction ===== */}
+      <section id='about' className='section'>
+        <Container>
+          <Row className="align-items-center g-4 g-lg-5">
+            <Col xs={12} md={6}>
+              <span className='section-tag'>About Us</span>
+              <h2 className="section-title">Welcome to Our Event Management</h2>
+              <p className="paragraph">
+                We specialize in creating unforgettable events tailored to your needs. Whether it's a wedding, corporate event, or private party, our expert team ensures every detail is perfect.
+              </p>
+              <p className="paragraph">
+                From intimate gatherings to grand celebrations, we focus on crafting meaningful moments and unforgettable experiences. Known especially for our delicious, flavor-rich cuisine, our catering services are a highlight at every event. Whether you're planning a wedding, cultural program, or private function, let Empire help you turn your vision into a cherished memory.
+              </p>
+            </Col>
 
-  <Contact/>
-</div>
+            <Col xs={12} md={6}>
+              <div className='about-image'>
+                <Image src="/Images/flower.jpg" alt="Event decoration by Empire Events" fluid />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-   
-   
+      {/* ===== Portfolio preview ===== */}
+      <Portfolio title='Our Event Galleries' />
+
+      {/* ===== Services / Event categories ===== */}
+      <section id='services' className='section section-tinted'>
+        <Container>
+          <div className='text-center mb-5'>
+            <span className='section-tag'>Services</span>
+            <h2 className='section-title'>Our Event Categories</h2>
+          </div>
+
+          <Row className='g-4'>
+            {eventCategories.map((item) => (
+              <Col key={item.name} xs={12} sm={6} lg={4}>
+                <div className='event-card'>
+                  <div className='event-icon'>
+                    <i className={`bi ${item.icon}`}></i>
+                  </div>
+                  <h3>{item.name}</h3>
+                  <p>Explore stage setup, food, seating, and more for {item.name.toLowerCase()} events</p>
+                  {item.gallery ? (
+                    <Link to={`/Gallery/${item.gallery}`} className='card-link'>
+                      View Gallery <i className='bi bi-arrow-right'></i>
+                    </Link>
+                  ) : (
+                    <Link to='/contact' className='card-link'>
+                      Enquire Now <i className='bi bi-arrow-right'></i>
+                    </Link>
+                  )}
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* ===== Contact form ===== */}
+      <Contact />
     </div>
   )
 }
