@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 env
+
+# Environment files (keys must never be committed)
+.env
+.env.*
+!.env.example

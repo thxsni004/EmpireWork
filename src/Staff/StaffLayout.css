@@ -1,0 +1,195 @@
+/* ===== Staff portal: clean business layout =====
+   Neutral greys with small maroon accents from the brand colors. */
+
+.staff-app {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f5f7;
+  color: #212529;
+}
+
+/* Dashboards use a plain font for headings (easier to read numbers and tables) */
+.staff-app h1,
+.staff-app h2,
+.staff-app h3,
+.staff-app h4,
+.staff-app h5,
+.staff-login-page h1 {
+  font-family: inherit;
+  font-weight: 600;
+}
+
+/* ===== Sidebar ===== */
+.staff-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  flex-direction: column;
+  background-color: var(--white);
+  border-right: 1px solid #e5e7eb;
+  padding: 1.25rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.staff-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.staff-brand img {
+  width: 44px;
+  height: auto;
+}
+
+.staff-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.staff-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.5rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.staff-menu-link:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+/* NavLink adds "active" to the link for the current page */
+.staff-menu-link.active {
+  background-color: var(--rose-light);
+  color: var(--maroon);
+}
+
+.staff-offcanvas {
+  max-width: 280px;
+}
+
+/* ===== Top bar and content ===== */
+.staff-main {
+  flex: 1;
+  min-width: 0; /* lets wide tables scroll inside instead of stretching the page */
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--white);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.staff-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.staff-role-badge {
+  font-size: 0.75rem;
+  color: var(--maroon);
+  text-transform: capitalize;
+}
+
+.staff-content {
+  padding: 1.5rem;
+}
+
+@media (max-width: 575px) {
+  .staff-topbar,
+  .staff-content {
+    padding: 1rem;
+  }
+}
+
+.staff-page-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.staff-panel {
+  background-color: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.staff-center {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Login page ===== */
+.staff-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background-color: #f4f5f7;
+}
+
+.staff-login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.staff-login-card form {
+  text-align: left;
+}
+
+.staff-login-card h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.staff-login-logo {
+  width: 90px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.staff-login-card .form-control:focus {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(168, 77, 77, 0.2);
+}
+
+.staff-back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.staff-back-link:hover {
+  color: var(--maroon);
+}
